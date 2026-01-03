@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="contractor.css" />
+    <script
+      src="https://kit.fontawesome.com/012112a406.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      document.querySelectorAll(".card-image").forEach((slider) => {
+        const slides = slider.querySelectorAll(".slide");
+        const prev = slider.querySelector(".left");
+        const next = slider.querySelector(".right");
+
+        if (slides.length === 0) return; // safety check
+
+        let index = 0;
+
+        function showSlide(i) {
+          slides.forEach((slide) => slide.classList.remove("active"));
+          slides[i].classList.add("active");
+        }
+
+        next.addEventListener("click", () => {
+          index = (index + 1) % slides.length;
+          showSlide(index);
+        });
+
+        prev.addEventListener("click", () => {
+          index = (index - 1 + slides.length) % slides.length;
+          showSlide(index);
+        });
+      });
+    });
+  </script>
+
+  <body>
+    <nav class="navbar">
+      <div class="nav-logo" style="display: flex">
+        <!-- <img src="117-.png" style="height: 80px ;padding-left: 7px;" alt="House Project" /> -->
+        <img
+          src="h1.png"
+          style="height: 75px; padding-left: 7px"
+          alt="House Project"
+        />
+      </div>
+
+      <ul class="nav-links">
+        <li class="nav-item">
+          <a href="#" class="nav-link"
+            >Photos<i class="fa-solid fa-angle-down"></i
+          ></a>
+
+          <div class="dropdown-menu">
+            <div class="dropdown-column">
+              <h1 style="font-size: large; color: rgb(211, 152, 41)">
+                KITCHEN & DINING
+              </h1>
+              <a href="#">Kitchen</a>
+              <a href="#">Modular Kitchen</a>
+              <a href="#">Dining Room</a>
+            </div>
+            <div class="dropdown-column">
+              <h1 style="font-size: large; color: rgb(211, 152, 41)">
+                BED & BATH
+              </h1>
+              <a href="#">Bedroom</a>
+              <a href="#">Nursery</a>
+              <a href="#">Bathroom</a>
+            </div>
+            <div class="dropdown-column">
+              <h1 style="font-size: large; color: rgb(211, 152, 41)">LIVING</h1>
+              <a href="#">Living Room</a>
+              <a href="#">Home Theater</a>
+            </div>
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <a href="#" class="nav-link"
+            >Find Professionals<i class="fa-solid fa-angle-down"></i
+          ></a>
+          <div class="dropdown-menu">
+            <div class="dropdown-column">
+              <h1 style="font-size: large; color: rgb(211, 152, 41)">
+                Select Profession
+              </h1>
+              <a href="index.html">Contrators and Builders</a>
+              <a href="archi.html">Architect</a>
+              <a href="inter.html">Interial Designers</a>
+              <a href="mat.html">Materials shop</a>
+              <a href="#">Paint</a>
+              <a href="#">Lightings</a>
+              <a href="#">Gardening</a>
+            </div>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link"
+            >Customize packages<i class="fa-solid fa-angle-down"></i
+          ></a>
+          <div class="dropdown-menu">
+            <div class="dropdown-column">
+              <h1 style="font-size: large; color: rgb(211, 152, 41)">
+                Contact our expert
+              </h1>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <div class="search-bar" style="margin-left: auto">
+        <input type="text" placeholder="Search…" />
+        <button aria-label="Search">🔍</button>
+      </div>
+
+      <div class="ico">
+        <i class="fa-regular fa-message"></i>
+        <i class="fa-solid fa-heart" style="color: rgb(213, 42, 102)"></i>
+        <i class="fa-regular fa-user"></i>
+      </div>
+    </nav>
+    <div class="page-container">
+      <aside class="sidebar">
+        <div class="filter-group">
+          <h3 style="color: #1c7188; font-size: 20px">
+            <i class="fa-solid fa-location-crosshairs"></i> Location
+          </h3>
+          <input
+            type="text"
+            style="
+              background-color: #c0ece9;
+              height: 28px;
+              padding: 6px;
+              border: none;
+              margin-top: 8px;
+              margin-right: 16px;
+              font-size: 17px;
+            "
+            placeholder="Search City or State"
+          />
+
+          <button
+            class="ll"
+            style="
+              padding: 6px;
+              border: none;
+              margin-top: 8px;
+              margin-right: 16px;
+              font-size: 17px;
+            "
+          >
+            Search
+          </button>
+          <h3 style="color: #1c7188; font-size: 20px; padding-top: 20px">
+            <i class="fa-solid fa-location-crosshairs"></i> PinCode
+          </h3>
+          <input
+            type="text"
+            style="
+              background-color: #c0ece9;
+              height: 28px;
+              padding: 6px;
+              border: none;
+              margin-top: 8px;
+              margin-right: 16px;
+              font-size: 17px;
+            "
+            placeholder="Enter Pincode"
+          />
+          <button
+            class="ll"
+            style="
+              padding: 6px;
+              border: none;
+              margin-top: 8px;
+              margin-right: 16px;
+              font-size: 17px;
+            "
+          >
+            Search
+          </button>
+        </div>
+
+        <div class="filter-group">
+          <h3
+            style="
+              color: #1c7188;
+              font-size: 20px;
+              padding: 20px;
+              padding-left: 2px;
+            "
+          >
+            <i class="fa-solid fa-user-tie" style="padding-right: 1px"></i
+            >Professional Category
+          </h3>
+          <div class="category-list">
+            <label>
+              <input
+                type="radio"
+                name="cat"
+                onchange="window.location.href='index.html'"
+              />
+              <a
+                href="index.html"
+                onclick="this.previousElementSibling.checked = true;"
+                style="color: inherit; text-decoration: none"
+              >
+                Contractors and Builders
+              </a>
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="cat"
+                onchange="window.location.href='archi.html'"
+              />
+              <a
+                href="archi.html"
+                onclick="this.previousElementSibling.checked = true;"
+                style="color: inherit; text-decoration: none"
+              >
+                Architect
+              </a>
+            </label>
+             <label>
+              <input
+                type="radio"
+                name="cat"
+                onchange="window.location.href='inter.html'"
+              />
+              <a
+                href="inter.html"
+                onclick="this.previousElementSibling.checked = true;"
+                style="color: inherit; text-decoration: none"
+              >
+                Interial Designer
+              </a>
+            </label>
+             <label>
+              <input
+                type="radio"
+                name="cat"
+                onchange="window.location.href='mat.html'"
+              />
+              <a
+                href="mat.html"
+                onclick="this.previousElementSibling.checked = true;"
+                style="color: inherit; text-decoration: none"
+              >
+                Material Shop
+              </a>
+            </label>
+             <label>
+              <input
+                type="radio"
+                name="cat"
+                onchange="window.location.href='archi.html'"
+              />
+              <a
+                href="archi.html"
+                onclick="this.previousElementSibling.checked = true;"
+                style="color: inherit; text-decoration: none"
+              >
+               Paint
+              </a>
+            </label>
+             <label>
+              <input
+                type="radio"
+                name="cat"
+                onchange="window.location.href='archi.html'"
+              />
+              <a
+                href="archi.html"
+                onclick="this.previousElementSibling.checked = true;"
+                style="color: inherit; text-decoration: none"
+              >
+                Electronics items
+              </a>
+            </label>
+
+             <label>
+              <input
+                type="radio"
+                name="cat"
+                onchange="window.location.href='#'"
+              />
+              <a
+                href="#"
+                onclick="this.previousElementSibling.checked = true;"
+                style="color: inherit; text-decoration: none"
+              >
+                Lightings
+              </a>
+            </label>
+             <label>
+              <input
+                type="radio"
+                name="cat"
+                onchange="window.location.href='#'"
+              />
+              <a
+                href="#"
+                onclick="this.previousElementSibling.checked = true;"
+                style="color: inherit; text-decoration: none"
+              >
+                Gardening
+              </a>
+            </label>
+            
+            
+          </div>
+        </div>
+      </aside>
+      <div class="k" style="display: ">
+        <main class="listings-container">
+          <div class="listing-card">
+            <div class="card-image">
+              <img src="111.jpg" class="slide active" />
+              <img src="112.jpg" class="slide" />
+              <img src="i1.jpeg" class="slide" />
+              <button class="arrow left">&#10094;</button>
+              <button class="arrow right">&#10095;</button>
+            </div>
+            <div class="card-details">
+              <div class="header-row">
+                <div class="firm-info">
+                  <h2>BuildTech Contrator</h2>
+                  <span class="rating">⭐ 4.9 (110 Reviews)</span>
+                </div>
+                <div class="hy">
+                  <button class="msg-btne">Check Profile</button>
+                  <button class="msg-btn">✉ Send Message</button>
+                </div>
+              </div>
+              <p class="description">
+                BuildTech provides a comprehensive range of services...
+                <a href="#">Read More</a>
+              </p>
+              <p class="address">
+                📍 402-E, 6th Street, Coimbatore, Tamil Nadu
+              </p>
+            </div>
+          </div>
+        </main>
+        <main class="listings-container">
+          <div class="listing-card">
+            <div class="card-image">
+              <div class="card-image">
+                <img src="f1.jpg" class="slide active" />
+                <img src="f2.jpg" class="slide" />
+                <img src="f3.jpg" class="slide" />
+                <button class="arrow left">&#10094;</button>
+                <button class="arrow right">&#10095;</button>
+              </div>
+              <img src="114.jpeg" alt="House Project" />
+            </div>
+            <div class="card-details">
+              <div class="header-row">
+                <div class="firm-info">
+                  <h2>Ragini Builders</h2>
+                  <span class="rating">⭐ 4.9 (110 Reviews)</span>
+                </div>
+                <div class="hy">
+                  <button class="msg-btne">Check Profile</button>
+
+                  <button class="msg-btn">✉ Send Message</button>
+                </div>
+              </div>
+              <p class="description">
+                BuildTech provides a comprehensive range of services...
+                <a href="#">Read More</a>
+              </p>
+              <p class="address">
+                📍 402-E, 6th Street, Coimbatore, Tamil Nadu
+              </p>
+            </div>
+          </div>
+        </main>
+        <main class="listings-container">
+          <div class="listing-card">
+            <div class="card-image">
+              <div class="card-image">
+                <img src="r1.jpg" class="slide active" />
+                <img src="r3.jpg" class="slide" />
+                <img src="r2.png" class="slide" />
+                <button class="arrow left">&#10094;</button>
+                <button class="arrow right">&#10095;</button>
+              </div>
+            </div>
+            <div class="card-details">
+              <div class="header-row">
+                <div class="firm-info">
+                  <h2>BuildHouse rawhouse builders</h2>
+                  <span class="rating">⭐ 4.9 (110 Reviews)</span>
+                </div>
+                <div class="hy">
+                  <button class="msg-btne">Check Profile</button>
+                  <button class="msg-btn">✉ Send Message</button>
+                </div>
+              </div>
+              <p class="description">
+                BuildTech provides a comprehensive range of services...
+                <a href="#">Read More</a>
+              </p>
+              <p class="address">
+                📍 402-E, 6th Street, Coimbatore, Tamil Nadu
+              </p>
+            </div>
+          </div>
+          <main class="listings-container">
+            <div class="listing-card">
+              <div class="card-image">
+                <div class="card-image">
+                  <img src="m1.jpeg" class="slide active" />
+                  <img src="m2.jpg" class="slide" />
+                  <img src="m3.jng" class="slide" />
+                  <button class="arrow left">&#10094;</button>
+                  <button class="arrow right">&#10095;</button>
+                </div>
+              </div>
+              <div class="card-details">
+                <div class="header-row">
+                  <div class="firm-info">
+                    <h2>Amit mall builders</h2>
+                    <span class="rating">⭐ 4.9 (110 Reviews)</span>
+                  </div>
+                  <div class="hy">
+                    <button class="msg-btne">Check Profile</button>
+                    <button class="msg-btn">✉ Send Message</button>
+                  </div>
+                </div>
+                <p class="description">
+                  BuildTech provides a comprehensive range of services...
+                  <a href="#">Read More</a>
+                </p>
+                <p class="address">
+                  📍 402-E, 6th Street, Coimbatore, Tamil Nadu
+                </p>
+              </div>
+            </div>
+          </main>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>

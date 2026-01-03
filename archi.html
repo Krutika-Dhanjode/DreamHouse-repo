@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="archi.css" />
+    <script
+      src="https://kit.fontawesome.com/012112a406.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <script>
+    
+    document.addEventListener("DOMContentLoaded", () => {
+      document.querySelectorAll(".card-image").forEach((slider) => {
+        const slides = slider.querySelectorAll(".slide");
+        const prev = slider.querySelector(".left");
+        const next = slider.querySelector(".right");
+
+        if (slides.length === 0) return; // safety check
+
+        let index = 0;
+
+        function showSlide(i) {
+          slides.forEach((slide) => slide.classList.remove("active"));
+          slides[i].classList.add("active");
+        }
+
+        next.addEventListener("click", () => {
+          index = (index + 1) % slides.length;
+          showSlide(index);
+        });
+
+        prev.addEventListener("click", () => {
+          index = (index - 1 + slides.length) % slides.length;
+          showSlide(index);
+        });
+      });
+    });
+  </script>
+
+  <body>
+    <nav class="navbar">
+      <div class="nav-logo" style="display: flex;">
+        <!-- <img src="117-.png" style="height: 80px ;padding-left: 7px;" alt="House Project" /> -->
+        <img src="h1.png" style="height: 75px ;padding-left: 7px;" alt="House Project" />
+      </div>
+
+      <ul class="nav-links">
+        <li class="nav-item">
+          <a href="#" class="nav-link"
+            >Photos<i class="fa-solid fa-angle-down"></i
+          ></a>
+
+          <div class="dropdown-menu">
+            <div class="dropdown-column">
+              <h1 style="font-size: large; color: rgb(211, 152, 41)">
+                KITCHEN & DINING
+              </h1>
+              <a href="#">Kitchen</a>
+              <a href="#">Modular Kitchen</a>
+              <a href="#">Dining Room</a>
+            </div>
+            <div class="dropdown-column">
+              <h1 style="font-size: large; color: rgb(211, 152, 41)">
+                BED & BATH
+              </h1>
+              <a href="#">Bedroom</a>
+              <a href="#">Nursery</a>
+              <a href="#">Bathroom</a>
+            </div>
+            <div class="dropdown-column">
+              <h1 style="font-size: large; color: rgb(211, 152, 41)">LIVING</h1>
+              <a href="#">Living Room</a>
+              <a href="#">Home Theater</a>
+            </div>
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <a href="#" class="nav-link"
+            >Find Professionals<i class="fa-solid fa-angle-down"></i
+          ></a>
+          <div class="dropdown-menu">
+            <div class="dropdown-column">
+              <h1 style="font-size: large; color: rgb(211, 152, 41)">
+                Select Profession
+              </h1>
+              <a href="index.html">Contrators and Builders</a>
+              <a href="archi.html">Architect</a>
+              <a href="inter.html">Interial Designers</a>
+              <a href="mat.html">Materials shop</a>
+              <a href="#">Paint</a>
+              <a href="#">Lightings</a>
+              <a href="#">Gardening</a>
+            </div>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link"
+            >Customize packages<i class="fa-solid fa-angle-down"></i
+          ></a>
+          <div class="dropdown-menu">
+            <div class="dropdown-column">
+              <h1 style="font-size: large; color: rgb(211, 152, 41)">
+                Contact our expert
+              </h1>
+            </div>
+          </div>
+          
+        </li>
+       
+      </ul>
+       <div class="search-bar" style="margin-left: auto;">
+        <input type="text" placeholder="Search…" />
+        <button aria-label="Search">🔍</button>
+      </div>
+
+      <div class="ico">
+        <i class="fa-regular fa-message"></i>
+        <i class="fa-solid fa-heart" style="color: rgb(213, 42, 102);"></i>
+        <i class="fa-regular fa-user"></i>
+      </div>
+    </nav>
+    <div class="page-container">
+      <aside class="sidebar">
+        <div class="filter-group">
+          <h3 style="color: #1c7188; font-size: 20px">
+            <i class="fa-solid fa-location-crosshairs"></i> Location
+          </h3>
+          <input
+            type="text"
+            style="
+              background-color: #c0ece9;
+              height: 28px;
+              padding: 6px;
+              border: none;
+              margin-top: 8px;
+              margin-right: 16px;
+              font-size: 17px;
+            "
+            placeholder="Search City or State"
+          />
+
+          <button
+            class="ll"
+            style="
+              padding: 6px;
+              border: none;
+              margin-top: 8px;
+              margin-right: 16px;
+              font-size: 17px;
+            "
+          >
+            Search
+          </button>
+          <h3 style="color: #1c7188; font-size: 20px; padding-top: 20px">
+            <i class="fa-solid fa-location-crosshairs"></i> PinCode
+          </h3>
+          <input
+            type="text"
+            style="
+              background-color: #c0ece9;
+              height: 28px;
+              padding: 6px;
+              border: none;
+              margin-top: 8px;
+              margin-right: 16px;
+              font-size: 17px;
+            "
+            placeholder="Enter Pincode"
+          />
+          <button
+            class="ll"
+            style="
+              padding: 6px;
+              border: none;
+              margin-top: 8px;
+              margin-right: 16px;
+              font-size: 17px;
+            "
+          >
+            Search
+          </button>
+        </div>
+
+        <div class="filter-group">
+          <h3
+            style="
+              color: #1c7188;
+              font-size: 20px;
+              padding: 20px;
+              padding-left: 2px;
+            "
+          >
+            <i class="fa-solid fa-user-tie" style="padding-right: 1px"></i
+            >Professional Category
+          </h3>
+          <div class="category-list">
+            <label>
+              <input
+                type="radio"
+                name="cat"
+                onchange="window.location.href='index.html'"
+              />
+              <a
+                href="index.html"
+                onclick="this.previousElementSibling.checked = true;"
+                style="color: inherit; text-decoration: none"
+              >
+                Contractors and Builders
+              </a>
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="cat"
+                onchange="window.location.href='archi.html'"
+              />
+              <a
+                href="archi.html"
+                onclick="this.previousElementSibling.checked = true;"
+                style="color: inherit; text-decoration: none"
+              >
+                Architect
+              </a>
+            </label>
+             <label>
+              <input
+                type="radio"
+                name="cat"
+                onchange="window.location.href='inter.html'"
+              />
+              <a
+                href="inter.html"
+                onclick="this.previousElementSibling.checked = true;"
+                style="color: inherit; text-decoration: none"
+              >
+                Interial Designer
+              </a>
+            </label>
+             <label>
+              <input
+                type="radio"
+                name="cat"
+                onchange="window.location.href='mat.html'"
+              />
+              <a
+                href="mat.html"
+                onclick="this.previousElementSibling.checked = true;"
+                style="color: inherit; text-decoration: none"
+              >
+                Material Shop
+              </a>
+            </label>
+             <label>
+              <input
+                type="radio"
+                name="cat"
+                onchange="window.location.href='archi.html'"
+              />
+              <a
+                href="archi.html"
+                onclick="this.previousElementSibling.checked = true;"
+                style="color: inherit; text-decoration: none"
+              >
+               Paint
+              </a>
+            </label>
+             <label>
+              <input
+                type="radio"
+                name="cat"
+                onchange="window.location.href='archi.html'"
+              />
+              <a
+                href="archi.html"
+                onclick="this.previousElementSibling.checked = true;"
+                style="color: inherit; text-decoration: none"
+              >
+                Electronics items
+              </a>
+            </label>
+
+             <label>
+              <input
+                type="radio"
+                name="cat"
+                onchange="window.location.href='#'"
+              />
+              <a
+                href="#"
+                onclick="this.previousElementSibling.checked = true;"
+                style="color: inherit; text-decoration: none"
+              >
+                Lightings
+              </a>
+            </label>
+             <label>
+              <input
+                type="radio"
+                name="cat"
+                onchange="window.location.href='#'"
+              />
+              <a
+                href="#"
+                onclick="this.previousElementSibling.checked = true;"
+                style="color: inherit; text-decoration: none"
+              >
+                Gardening
+              </a>
+            </label>
+            
+            
+          </div>
+        </div>
+      </aside>
+      <div class="k" style="display: ">
+        <main class="listings-container">
+
+          <!-- CARD 1 -->
+          <div class="listing-card">
+            <div class="card-image">
+              <img src="a1.jpeg" class="slide active" />
+              <img src="a2.jpeg" class="slide" />
+              <img src="a3.jpeg" class="slide" />
+              <button class="arrow left">&#10094;</button>
+              <button class="arrow right">&#10095;</button>
+            </div>
+            <div class="card-details">
+              <div class="header-row">
+                <div class="firm-info">
+                  <h2>Studio Axis Architects</h2>
+                  <span class="rating">⭐ 4.8 (96 Reviews)</span>
+                </div>
+                <div class="hy">
+                  <button class="msg-btne">Check Profile</button>
+                  <button class="msg-btn">✉ Send Message</button>
+                </div>
+              </div>
+              <p class="description">
+                Studio Axis Architects specialize in modern residential and
+                commercial architectural solutions with sustainable design.
+                <a href="#">Read More</a>
+              </p>
+              <p class="address">
+                📍 Banjara Hills, Hyderabad, Telangana
+              </p>
+            </div>
+          </div>
+
+          <!-- CARD 2 -->
+          <div class="listing-card">
+            <div class="card-image">
+              <img src="a4.jpg" class="slide active" />
+              <img src="a5.jpeg" class="slide" />
+              <img src="a6.jpeg" class="slide" />
+              <button class="arrow left">&#10094;</button>
+              <button class="arrow right">&#10095;</button>
+            </div>
+            <div class="card-details">
+              <div class="header-row">
+                <div class="firm-info">
+                  <h2>UrbanNest Architects</h2>
+                  <span class="rating">⭐ 4.7 (120 Reviews)</span>
+                </div>
+                <div class="hy">
+                  <button class="msg-btne">Check Profile</button>
+                  <button class="msg-btn">✉ Send Message</button>
+                </div>
+              </div>
+              <p class="description">
+                UrbanNest Architects focus on smart homes, urban planning,
+                and minimal architectural designs for city living.
+                <a href="#">Read More</a>
+              </p>
+              <p class="address">
+                📍 Indiranagar, Bengaluru, Karnataka
+              </p>
+            </div>
+          </div>
+
+          <!-- CARD 3 -->
+          <div class="listing-card">
+            <div class="card-image">
+              <img src="a8.jpeg" class="slide active" />
+              <img src="a9.jpeg" class="slide" />
+              <img src="a10.jpg" class="slide" />
+              <button class="arrow left">&#10094;</button>
+              <button class="arrow right">&#10095;</button>
+            </div>
+            <div class="card-details">
+              <div class="header-row">
+                <div class="firm-info">
+                  <h2>Form & Space Studio</h2>
+                  <span class="rating">⭐ 4.9 (85 Reviews)</span>
+                </div>
+                <div class="hy">
+                  <button class="msg-btne">Check Profile</button>
+                  <button class="msg-btn">✉ Send Message</button>
+                </div>
+              </div>
+              <p class="description">
+                Form & Space Studio delivers contemporary architecture with
+                a balance of aesthetics, functionality, and eco-design.
+                <a href="#">Read More</a>
+              </p>
+              <p class="address">
+                📍 Navrangpura, Ahmedabad, Gujarat
+              </p>
+            </div>
+          </div>
+
+          <!-- CARD 4 -->
+          <div class="listing-card">
+            <div class="card-image">
+              <img src="a11.jpeg" class="slide active" />
+              <img src="a12.jpeg" class="slide" />
+              <img src="a4.jpg" class="slide" />
+              <button class="arrow left">&#10094;</button>
+              <button class="arrow right">&#10095;</button>
+            </div>
+            <div class="card-details">
+              <div class="header-row">
+                <div class="firm-info">
+                  <h2>VisionCraft Architects</h2>
+                  <span class="rating">⭐ 4.8 (102 Reviews)</span>
+                </div>
+                <div class="hy">
+                  <button class="msg-btne">Check Profile</button>
+                  <button class="msg-btn">✉ Send Message</button>
+                </div>
+              </div>
+              <p class="description">
+                VisionCraft Architects are known for premium villas,
+                commercial buildings, and innovative architectural concepts.
+                <a href="#">Read More</a>
+              </p>
+              <p class="address">
+                📍 Civil Lines, Nagpur, Maharashtra
+              </p>
+            </div>
+          </div>
+
+        </main>
+      </div>
+    </div>
+  </body>
+</html>

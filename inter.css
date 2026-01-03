@@ -1,0 +1,344 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}/* Overall Page Layout */
+.page-container {
+   /* Aligns Sidebar and Main side-by-side */
+  
+  margin-top: 60px;          /* navbar height */
+  margin-left: 250px;        /* sidebar width */
+  padding: 20px;
+  max-width: calc(100% - 250px);
+  
+  font-family: Arial, sans-serif;
+  gap: 20px;
+  font-family: "Merriweather", serif;
+  padding: 20px;
+}
+body {
+  font-family: "Merriweather", serif;
+  padding-top: 60px; 
+}
+.nav-logo img {
+  height: 3px;   /* instead of 90px */
+}
+
+
+/* Sidebar Styles */
+.sidebar {
+  position: fixed;
+  margin-top:px;                 /* SAME as navbar height */
+  left: 0;
+  width: 250px;
+  height: calc(100vh - 70px);
+  padding: 20px;
+  background: #fff;
+  border-right: 1px solid #ddd;
+  overflow-y: auto;          /* scroll if content is long */
+}
+
+
+.filter-group h3 {
+  font-size: 16px;
+  margin-bottom: 10px;
+  gap: 30px;
+}
+
+/* Main Listings Styles */
+.listings-container {
+  flex: 1;
+  width: 1200px; /* Takes remaining space */
+}
+
+.listing-card {
+  display: flex; /* Aligns Image and Details horizontally */
+  border: 1px solid #eee;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  background: #fff;
+  width: 100%;
+}
+
+.card-image {
+  position: relative;
+  width: 320px;
+  height: 220px;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+/* Slides */
+.card-image img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.card-image img.active {
+  opacity: 1;
+}
+
+/* Arrows */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  color: #fff;
+  border: none;
+  font-size: 20px;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 10;
+}
+
+.arrow.left {
+  left: 10px;
+}
+
+.arrow.right {
+  right: 10px;
+}
+
+.arrow:hover {
+  background: rgba(0,0,0,0.8);
+}
+
+
+
+.card-details {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-family: "Merriweather", serif;
+}
+
+/* Internal Card Components */
+.header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.msg-btn {
+  background: #fff;
+  border: 1px solid #333;
+  padding: 8px 15px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+.msg-btn:hover{
+    background: #2fb512;
+    color: rgb(234, 244, 240);
+}
+.msg-btne {
+  background: #fff;
+  border: 1px solid #333;
+  padding: 8px 15px;
+  cursor: pointer;
+  border-radius: 4px;
+  background-color: #328142;
+  color: white;
+  font-size:medium;
+}
+.msg-btne:hover{
+  background-color: #37bc40;
+}
+
+.description {
+  color: #666;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.address {
+  font-size: 13px;
+  color: #888;
+}
+
+/* Responsive: Stack on mobile */
+@media (max-width: 768px) {
+  .page-container {
+    flex-direction: column;
+  }
+  .listing-card {
+    flex-direction: column;
+  }
+  .card-image {
+    flex: 0 0 200px;
+  }
+}
+/* Navbar Styling */
+.navbar {
+  display: flex;
+  align-items: center;
+  padding: px 50px;
+  
+  background: #001F3D;
+  border-bottom: 1px solid #e6e6e6;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+
+  font-size: larger;
+}
+.ll{
+  color: #ffffff;
+  background-color: #59a747;
+  
+  width:100px ;
+  height: 28px;
+  
+  border-color: #27362e;
+}
+.ll:hover{
+  background-color: #20602d;
+}
+.ico {
+         /* pushes icon to extreme right */
+  font-size: 27px;
+  cursor: pointer;
+  
+  color: #B0FFFA;
+  gap: 40px;
+  padding-right: 40px;
+  margin-left: auto;
+  
+ 
+}
+
+.nav-links {
+  font-style: oblique;
+  display: flex;
+  color: #d12f2f;
+  list-style: none;
+  gap: 30px;
+  margin-left: 30px;
+}
+
+
+.nav-item {
+  position: relative; /* Crucial for positioning the dropdown */
+  padding: 15px 0;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #E6E6E6;
+  font-weight: 500;
+}
+
+/* Dropdown Menu - Hidden by default */
+.dropdown-menu {
+  position: absolute;
+  top: 100%; /* Sits exactly below the navbar */
+  left: 0;
+  font-family: "Merriweather", serif;
+  background: white;
+  display: none; /* Hides the menu */
+  grid-template-columns: repeat(3, 200px); /* Creates the columns */
+  gap: 40px;
+  padding: 30px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  border: 1px solid #eee;
+  z-index: 999;
+}
+
+/* Show Menu on Hover */
+.nav-item:hover .dropdown-menu {
+  display: grid; /* Shows the menu using grid when parent is hovered */
+}
+
+/* Column Styling */
+.dropdown-column h4 {
+  font-size: 13px;
+  color: #777;
+  font-family: "Merriweather", serif;
+  margin-bottom: 15px;
+  letter-spacing: 0.5px;
+}
+
+.dropdown-column a {
+  display: block;
+  text-decoration: none;
+  color: #333;
+  padding: 5px 0;
+  font-size: 14px;
+}
+
+.dropdown-column a:hover {
+  color: #7ac142; /* Houzz Green */
+}
+/* Professional Category - vertical layout */
+.category-list {
+  display: flex;
+  flex-direction: column;   /* 🔥 forces vertical */
+  gap: 20px;
+  font-weight: 700;
+}
+
+.category-list label {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-size: 17px;
+  cursor: pointer;
+}
+.search-bar {
+  display: flex;
+  align-items: center;
+  width: 250px;
+  height: 40px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 999px; /* pill shape */
+  padding: 20px 15px;
+  padding-top: 20px;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+  
+  
+}
+
+.search-bar:hover,
+.search-bar:focus-within {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.search-bar input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  padding: 6px 8px;
+  color: #111827;
+}
+
+.search-bar input::placeholder {
+  color: #9ca3af;
+}
+
+.search-bar button {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 18px;
+  color: #6b7280;
+  padding: 4px 6px;
+}
+
+.search-bar button:hover {
+  color: #2563eb;
+}
+
