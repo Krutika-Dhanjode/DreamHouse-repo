@@ -1,0 +1,113 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* Body setup */
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  
+}
+
+/* Background video */
+.body-bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+  opacity: 0.6;
+}
+
+/* Transparent overlay */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45); /* adjust transparency */
+  z-index: -1;
+}
+
+/* Signup card */
+.signup-container {
+  background: rgba(255, 255, 255, 0.95);
+  width: 360px;
+  padding: 30px;
+  border-radius: 14px;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  z-index: 1;
+}
+
+/* Heading */
+.signup-container h2 {
+  color: #0b3d2e;
+  margin-bottom: 5px;
+}
+
+/* Sub text */
+.signup-container p {
+  color: #555;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+/* Inputs */
+.signup-container input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+}
+
+/* Button */
+.signup-container button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 15px;
+  background: #d39829;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.signup-container button:hover {
+  background: #b8831f;
+}
+
+/* Login link */
+.login-text {
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.login-text a {
+  color: #0b3d2e;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Mobile fallback */
+@media (max-width: 768px) {
+  .body-bg-video {
+    display: none;
+  }
+
+  body {
+    background: url("fallback.jpg") center/cover no-repeat;
+  }
+}
