@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="m.css" />
+    <link rel="stylesheet" href="inter.css" />
     <script
       src="https://kit.fontawesome.com/012112a406.js"
       crossorigin="anonymous"
@@ -52,33 +52,11 @@
 
       <ul class="nav-links">
         <li class="nav-item">
-          <a href="#" class="nav-link"
+          <a href="photo.html" class="nav-link"
             >Photos<i class="fa-solid fa-angle-down"></i
           ></a>
 
-          <div class="dropdown-menu">
-            <div class="dropdown-column">
-              <h1 style="font-size: large; color: rgb(211, 152, 41)">
-                KITCHEN & DINING
-              </h1>
-              <a href="#">Kitchen</a>
-              <a href="#">Modular Kitchen</a>
-              <a href="#">Dining Room</a>
-            </div>
-            <div class="dropdown-column">
-              <h1 style="font-size: large; color: rgb(211, 152, 41)">
-                BED & BATH
-              </h1>
-              <a href="#">Bedroom</a>
-              <a href="#">Nursery</a>
-              <a href="#">Bathroom</a>
-            </div>
-            <div class="dropdown-column">
-              <h1 style="font-size: large; color: rgb(211, 152, 41)">LIVING</h1>
-              <a href="#">Living Room</a>
-              <a href="#">Home Theater</a>
-            </div>
-          </div>
+         
         </li>
 
         <li class="nav-item">
@@ -101,7 +79,7 @@
           </div>
         </li>
         <li class="nav-item">
-          <a href="#" class="nav-link"
+          <a href="custom.html" class="nav-link"
             >Customize packages<i class="fa-solid fa-angle-down"></i
           ></a>
           <div class="dropdown-menu">
@@ -118,7 +96,26 @@
         <button aria-label="Search">🔍</button>
       </div>
 
-      <div class="ico">
+      <div class="auth-buttons" id="authButtons">
+        <button class="btn signup">
+          <a
+            href="signup.html"
+            onclick="loginSuccess()"
+            style="color: aliceblue; font-weight: 200px"
+            >Sign Up</a
+          >
+        </button>
+        <button class="btn signin">
+          <a
+            href="signin.html"
+            onclick="loginSuccess()"
+            style="color: aliceblue; font-weight: 200px"
+            >Sign In</a
+          >
+        </button>
+      </div>
+
+      <div class="ico" id="userIcons" style="display: none;gap: 10px;">
         <i class="fa-regular fa-message"></i>
         <i class="fa-solid fa-heart" style="color: rgb(213, 42, 102)"></i>
         <i class="fa-regular fa-user"></i>
@@ -463,5 +460,6 @@
         </main>
       </div>
     </div>
+    <script src="main.js"></script>
   </body>
 </html>
