@@ -34,8 +34,6 @@
           <a href="photo.html" class="nav-link"
             >Photos<i class="fa-solid fa-angle-down"></i
           ></a>
-
-          
         </li>
 
         <li class="nav-item">
@@ -70,6 +68,39 @@
           </div>
         </li>
       </ul>
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      />
+      <div class="k">
+
+      <button id="ai-chat-button" class="nav-ai-btn">
+        <i class="fa-solid fa-wand-magic-sparkles"></i>
+        <span>Ask AI</span>
+      </button>
+
+      <div id="ai-chat-window" class="ai-chat-closed">
+        <div class="ai-chat-header">
+          <span><i class="fa-solid fa-robot"></i> Personal Assistant</span>
+          <button id="close-ai">&times;</button>
+        </div>
+        <div id="ai-chat-messages">
+          <div class="ai-msg">
+            Hi! I'm your personal assistant. How can I help you with your doubts today?
+          </div>
+        </div>
+        <div class="ai-chat-input">
+          <input
+            type="text"
+            id="ai-input"
+            placeholder="Type your doubt here..."
+          />
+          <button id="ai-send-btn">
+            <i class="fa-solid fa-paper-plane"></i>
+          </button>
+        </div>
+      </div>
+      </div>
       <div class="search-bar" style="margin-left: auto">
         <input type="text" placeholder="Search…" />
         <button aria-label="Search">🔍</button>
@@ -93,7 +124,7 @@
         </button>
       </div>
 
-      <div class="ico" id="userIcons" style="display: none;gap: 10px;">
+      <div class="ico" id="userIcons" style="display: none; gap: 10px">
         <i class="fa-regular fa-message"></i>
         <i class="fa-solid fa-heart" style="color: rgb(213, 42, 102)"></i>
         <i class="fa-regular fa-user"></i>
@@ -126,7 +157,7 @@
         <div class="carousel-item active">
           <video class="d-block w-100" autoplay muted loop playsinline>
             <source src="v1.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
+            
           </video>
 
           <div class="carousel-caption d-none d-md-block">
@@ -138,7 +169,7 @@
         <div class="carousel-item active">
           <video class="d-block w-100" autoplay muted loop playsinline>
             <source src="v2.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
+            
           </video>
 
           <div class="carousel-caption d-none d-md-block">
@@ -146,13 +177,18 @@
             <p>Everything you need in one platform</p>
           </div>
         </div>
-        <div class="carousel-item">
-          <img src="..." class="d-block w-100" alt="..." />
+        <div class="carousel-item active">
+          <video class="d-block w-100" autoplay muted loop playsinline>
+            <source src="v1.mp4" type="video/mp4" />
+            
+          </video>
+
           <div class="carousel-caption d-none d-md-block">
-            <h5>Third slide label</h5>
-            <p>Some representative placeholder content for the third slide.</p>
+            <h5>Build Your Dream Home</h5>
+            <p>Everything you need in one platform</p>
           </div>
         </div>
+
       </div>
       <button
         class="carousel-control-prev"
