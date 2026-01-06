@@ -4,46 +4,25 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="contractor.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="main.css" />
+
     <script
       src="https://kit.fontawesome.com/012112a406.js"
       crossorigin="anonymous"
     ></script>
   </head>
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      document.querySelectorAll(".card-image").forEach((slider) => {
-        const slides = slider.querySelectorAll(".slide");
-        const prev = slider.querySelector(".left");
-        const next = slider.querySelector(".right");
-
-        if (slides.length === 0) return; // safety check
-
-        let index = 0;
-
-        function showSlide(i) {
-          slides.forEach((slide) => slide.classList.remove("active"));
-          slides[i].classList.add("active");
-        }
-
-        next.addEventListener("click", () => {
-          index = (index + 1) % slides.length;
-          showSlide(index);
-        });
-
-        prev.addEventListener("click", () => {
-          index = (index - 1 + slides.length) % slides.length;
-          showSlide(index);
-        });
-      });
-    });
-  </script>
-
   <body>
-    <nav class="navbar">
+    <nav class="custom-navbar">
       <div class="nav-logo" style="display: flex">
         <!-- <img src="117-.png" style="height: 80px ;padding-left: 7px;" alt="House Project" /> -->
-         <a href="main.html">
+        <a href="index.html">
         <img
           src="h1.png"
           style="height: 75px; padding-left: 7px"
@@ -56,8 +35,6 @@
           <a href="photo.html" class="nav-link"
             >Photos<i class="fa-solid fa-angle-down"></i
           ></a>
-
-          
         </li>
 
         <li class="nav-item">
@@ -69,7 +46,7 @@
               <h1 style="font-size: large; color: rgb(211, 152, 41)">
                 Select Profession
               </h1>
-              <a href="index.html">Contrators and Builders</a>
+              <a href="contractor.html">Contrators and Builders</a>
               <a href="archi.html">Architect</a>
               <a href="inter.html">Interial Designers</a>
               <a href="mat.html">Materials shop</a>
@@ -92,12 +69,44 @@
           </div>
         </li>
       </ul>
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      />
+      <div class="k">
+
+      <button id="ai-chat-button" class="nav-ai-btn">
+        <i class="fa-solid fa-wand-magic-sparkles"></i>
+        <span>Ask AI</span>
+      </button>
+
+      <div id="ai-chat-window" class="ai-chat-closed">
+        <div class="ai-chat-header">
+          <span><i class="fa-solid fa-robot"></i> Personal Assistant</span>
+          <button id="close-ai">&times;</button>
+        </div>
+        <div id="ai-chat-messages">
+          <div class="ai-msg">
+            Hi! I'm your personal assistant. How can I help you with your doubts today?
+          </div>
+        </div>
+        <div class="ai-chat-input">
+          <input
+            type="text"
+            id="ai-input"
+            placeholder="Type your doubt here..."
+          />
+          <button id="ai-send-btn">
+            <i class="fa-solid fa-paper-plane"></i>
+          </button>
+        </div>
+      </div>
+      </div>
       <div class="search-bar" style="margin-left: auto">
         <input type="text" placeholder="Search…" />
         <button aria-label="Search">🔍</button>
       </div>
-
-     <div class="auth-buttons" id="authButtons">
+      <div class="auth-buttons" id="authButtons">
         <button class="btn signup">
           <a
             href="signup.html"
@@ -116,336 +125,173 @@
         </button>
       </div>
 
-      <div class="ico" id="userIcons" style="display: none;gap: 10px;">
+      <div class="ico" id="userIcons" style="display: none; gap: 10px">
         <i class="fa-regular fa-message"></i>
         <i class="fa-solid fa-heart" style="color: rgb(213, 42, 102)"></i>
         <i class="fa-regular fa-user"></i>
       </div>
     </nav>
-    <div class="page-container">
-      <aside class="sidebar">
-        <div class="filter-group">
-          <h3 style="color: #1c7188; font-size: 20px">
-            <i class="fa-solid fa-location-crosshairs"></i> Location
-          </h3>
-          <input
-            type="text"
-            style="
-              background-color: #c0ece9;
-              height: 28px;
-              padding: 6px;
-              border: none;
-              margin-top: 8px;
-              margin-right: 16px;
-              font-size: 17px;
-            "
-            placeholder="Search City or State"
-          />
+    <div id="carouselExampleCaptions" class="carousel slide custom-carousel">
+      <div class="carousel-indicators">
+        <button
+          type="button"
+          data-bs-target="#carouselExampleCaptions"
+          data-bs-slide-to="0"
+          class="active"
+          aria-current="true"
+          aria-label="Slide 1"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#carouselExampleCaptions"
+          data-bs-slide-to="1"
+          aria-label="Slide 2"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#carouselExampleCaptions"
+          data-bs-slide-to="2"
+          aria-label="Slide 3"
+        ></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <video class="d-block w-100" autoplay muted loop playsinline>
+            <source src="v1.mp4" type="video/mp4" />
+            
+          </video>
 
-          <button
-            class="ll"
-            style="
-              padding: 6px;
-              border: none;
-              margin-top: 8px;
-              margin-right: 16px;
-              font-size: 17px;
-            "
-          >
-            Search
-          </button>
-          <h3 style="color: #1c7188; font-size: 20px; padding-top: 20px">
-            <i class="fa-solid fa-location-crosshairs"></i> PinCode
-          </h3>
-          <input
-            type="text"
-            style="
-              background-color: #c0ece9;
-              height: 28px;
-              padding: 6px;
-              border: none;
-              margin-top: 8px;
-              margin-right: 16px;
-              font-size: 17px;
-            "
-            placeholder="Enter Pincode"
-          />
-          <button
-            class="ll"
-            style="
-              padding: 6px;
-              border: none;
-              margin-top: 8px;
-              margin-right: 16px;
-              font-size: 17px;
-            "
-          >
-            Search
-          </button>
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Build Your Dream Home</h5>
+            <p>Everything you need in one platform</p>
+          </div>
         </div>
 
-        <div class="filter-group">
-          <h3
-            style="
-              color: #1c7188;
-              font-size: 20px;
-              padding: 20px;
-              padding-left: 2px;
-            "
-          >
-            <i class="fa-solid fa-user-tie" style="padding-right: 1px"></i
-            >Professional Category
-          </h3>
-          <div class="category-list">
-            <label>
-              <input
-                type="radio"
-                name="cat"
-                onchange="window.location.href='index.html'"
-              />
-              <a
-                href="index.html"
-                onclick="this.previousElementSibling.checked = true;"
-                style="color: inherit; text-decoration: none"
-              >
-                Contractors and Builders
-              </a>
-            </label>
-            <label>
-              <input
-                type="radio"
-                name="cat"
-                onchange="window.location.href='archi.html'"
-              />
-              <a
-                href="archi.html"
-                onclick="this.previousElementSibling.checked = true;"
-                style="color: inherit; text-decoration: none"
-              >
-                Architect
-              </a>
-            </label>
-             <label>
-              <input
-                type="radio"
-                name="cat"
-                onchange="window.location.href='inter.html'"
-              />
-              <a
-                href="inter.html"
-                onclick="this.previousElementSibling.checked = true;"
-                style="color: inherit; text-decoration: none"
-              >
-                Interial Designer
-              </a>
-            </label>
-             <label>
-              <input
-                type="radio"
-                name="cat"
-                onchange="window.location.href='mat.html'"
-              />
-              <a
-                href="mat.html"
-                onclick="this.previousElementSibling.checked = true;"
-                style="color: inherit; text-decoration: none"
-              >
-                Material Shop
-              </a>
-            </label>
-             <label>
-              <input
-                type="radio"
-                name="cat"
-                onchange="window.location.href='archi.html'"
-              />
-              <a
-                href="archi.html"
-                onclick="this.previousElementSibling.checked = true;"
-                style="color: inherit; text-decoration: none"
-              >
-               Paint
-              </a>
-            </label>
-             <label>
-              <input
-                type="radio"
-                name="cat"
-                onchange="window.location.href='archi.html'"
-              />
-              <a
-                href="archi.html"
-                onclick="this.previousElementSibling.checked = true;"
-                style="color: inherit; text-decoration: none"
-              >
-                Electronics items
-              </a>
-            </label>
+        <div class="carousel-item active">
+          <video class="d-block w-100" autoplay muted loop playsinline>
+            <source src="v2.mp4" type="video/mp4" />
+            
+          </video>
 
-             <label>
-              <input
-                type="radio"
-                name="cat"
-                onchange="window.location.href='#'"
-              />
-              <a
-                href="#"
-                onclick="this.previousElementSibling.checked = true;"
-                style="color: inherit; text-decoration: none"
-              >
-                Lightings
-              </a>
-            </label>
-             <label>
-              <input
-                type="radio"
-                name="cat"
-                onchange="window.location.href='#'"
-              />
-              <a
-                href="#"
-                onclick="this.previousElementSibling.checked = true;"
-                style="color: inherit; text-decoration: none"
-              >
-                Gardening
-              </a>
-            </label>
-            
-            
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Build Your Dream Home</h5>
+            <p>Everything you need in one platform</p>
           </div>
         </div>
-      </aside>
-      <div class="k" >
-        <main class="listings-container">
-          <div class="listing-card">
-            <div class="card-image">
-              <img src="111.jpg" class="slide active" />
-              <img src="112.jpg" class="slide" />
-              <img src="i1.jpeg" class="slide" />
-              <button class="arrow left">&#10094;</button>
-              <button class="arrow right">&#10095;</button>
-            </div>
-            <div class="card-details">
-              <div class="header-row">
-                <div class="firm-info">
-                  <h2>BuildTech Contrator</h2>
-                  <span class="rating">⭐ 4.9 (110 Reviews)</span>
-                </div>
-                <div class="hy">
-                  <a href="profile.html"><button class="msg-btne">Check Profile</button></a>
-                  <button class="msg-btn">✉ Send Message</button>
-                </div>
-              </div>
-              <p class="description">
-                BuildTech provides a comprehensive range of services...
-                <a href="#">Read More</a>
-              </p>
-              <p class="address">
-                📍 402-E, 6th Street, Coimbatore, Tamil Nadu
-              </p>
-            </div>
-          </div>
-        </main>
-        <main class="listings-container">
-          <div class="listing-card">
-            <div class="card-image">
-              <div class="card-image">
-                <img src="f1.jpg" class="slide active" />
-                <img src="f2.jpg" class="slide" />
-                <img src="f3.jpg" class="slide" />
-                <button class="arrow left">&#10094;</button>
-                <button class="arrow right">&#10095;</button>
-              </div>
-              <img src="114.jpeg" alt="House Project" />
-            </div>
-            <div class="card-details">
-              <div class="header-row">
-                <div class="firm-info">
-                  <h2>Ragini Builders</h2>
-                  <span class="rating">⭐ 4.9 (110 Reviews)</span>
-                </div>
-                <div class="hy">
-                  <button class="msg-btne">Check Profile</button>
+        <div class="carousel-item active">
+          <video class="d-block w-100" autoplay muted loop playsinline>
+            <source src="v1.mp4" type="video/mp4" />
+            
+          </video>
 
-                  <button class="msg-btn">✉ Send Message</button>
-                </div>
-              </div>
-              <p class="description">
-                BuildTech provides a comprehensive range of services...
-                <a href="#">Read More</a>
-              </p>
-              <p class="address">
-                📍 402-E, 6th Street, Coimbatore, Tamil Nadu
-              </p>
-            </div>
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Build Your Dream Home</h5>
+            <p>Everything you need in one platform</p>
           </div>
-        </main>
-        <main class="listings-container">
-          <div class="listing-card">
-            <div class="card-image">
-              <div class="card-image">
-                <img src="r1.jpg" class="slide active" />
-                <img src="r3.jpg" class="slide" />
-                <img src="r2.png" class="slide" />
-                <button class="arrow left">&#10094;</button>
-                <button class="arrow right">&#10095;</button>
-              </div>
-            </div>
-            <div class="card-details">
-              <div class="header-row">
-                <div class="firm-info">
-                  <h2>BuildHouse rawhouse builders</h2>
-                  <span class="rating">⭐ 4.9 (110 Reviews)</span>
-                </div>
-                <div class="hy">
-                  <button class="msg-btne">Check Profile</button>
-                  <button class="msg-btn">✉ Send Message</button>
-                </div>
-              </div>
-              <p class="description">
-                BuildTech provides a comprehensive range of services...
-                <a href="#">Read More</a>
-              </p>
-              <p class="address">
-                📍 402-E, 6th Street, Coimbatore, Tamil Nadu
-              </p>
-            </div>
-          </div>
-          <main class="listings-container">
-            <div class="listing-card">
-              <div class="card-image">
-                <div class="card-image">
-                  <img src="m1.jpeg" class="slide active" />
-                  <img src="m2.jpg" class="slide" />
-                  <img src="m3.jng" class="slide" />
-                  <button class="arrow left">&#10094;</button>
-                  <button class="arrow right">&#10095;</button>
-                </div>
-              </div>
-              <div class="card-details">
-                <div class="header-row">
-                  <div class="firm-info">
-                    <h2>Amit mall builders</h2>
-                    <span class="rating">⭐ 4.9 (110 Reviews)</span>
-                  </div>
-                  <div class="hy">
-                    <button class="msg-btne">Check Profile</button>
-                    <button class="msg-btn">✉ Send Message</button>
-                  </div>
-                </div>
-                <p class="description">
-                  BuildTech provides a comprehensive range of services...
-                  <a href="#">Read More</a>
-                </p>
-                <p class="address">
-                  📍 402-E, 6th Street, Coimbatore, Tamil Nadu
-                </p>
-              </div>
-            </div>
-          </main>
-        </main>
+        </div>
+
+      </div>
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#carouselExampleCaptions"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#carouselExampleCaptions"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+    <div class="section-heading">
+      <h2>Our Services</h2>
+      <p>All home construction services in one place</p>
+    </div>
+
+    <div class="multi-card">
+      <div class="card">
+        <img src="111.jpg" class="card-img-top" alt="" />
+        <div class="card-body">
+          <p class="card-text text-center">Contractors & Builders</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="ar2.jpeg" class="card-img-top" alt="" />
+        <div class="card-body">
+          <p class="card-text text-center">Architect</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="m4.jpeg" class="card-img-top" alt="" />
+        <div class="card-body">
+          <p class="card-text text-center">Material</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="k8.jpg" class="card-img-top" alt="" />
+        <div class="card-body">
+          <p class="card-text text-center">Interior Designer</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="g1.jpg" class="card-img-top" alt="" />
+        <div class="card-body">
+          <p class="card-text text-center">Gardening</p>
+        </div>
       </div>
     </div>
+    <footer class="site-footer">
+      <div class="footer-container">
+        <!-- ABOUT US -->
+        <div class="footer-box">
+          <h3>About Us</h3>
+          <p>
+            We are a one-stop platform for home construction needs. From
+            architects and contractors to materials and interior designers, we
+            help families build their dream homes with trusted professionals.
+          </p>
+        </div>
+
+        <!-- CONTACT US -->
+        <div class="footer-box">
+          <h3>Contact Us</h3>
+          <p><strong>📍 Address:</strong> Nagpur, Maharashtra, India</p>
+          <p><strong>📞 Phone:</strong></p>
+          <p><strong>📧 Email:</strong> support@homebuild.com</p>
+        </div>
+
+        <!-- QUICK LINKS -->
+        <div class="footer-box">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Professionals</a></li>
+            <li><a href="#">Packages</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- COPYRIGHT -->
+      <div class="footer-bottom">© 2026 HomeBuild. All Rights Reserved.</div>
+    </footer>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
     <script src="main.js"></script>
   </body>
 </html>
