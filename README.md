@@ -1,4 +1,4 @@
-## ✨ DreamHouse (yoor dream , your vision)
+## ✨ DreamHouse (your dream , your vision)
 
 🏗️ Smart Home Construction Platform
 
