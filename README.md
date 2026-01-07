@@ -30,6 +30,6 @@ The absence of a unified platform results in poor planning, hidden costs, projec
 ---
 ## 🛠️ Tech Stack
 
-* Frontend:HTML, CSS, JavaScript
+* Frontend:HTML, CSS, JavaScript,React,tailwind CSS
 * Backend: Node.js, Express.js
-* Database: MongoDB
+* Database: MongoDB,firebase
