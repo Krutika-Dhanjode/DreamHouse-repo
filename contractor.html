@@ -9,6 +9,11 @@
       src="https://kit.fontawesome.com/012112a406.js"
       crossorigin="anonymous"
     ></script>
+    <link rel="stylesheet"
+ href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
   </head>
   <script>
     document.addEventListener("DOMContentLoaded", () => {
@@ -43,11 +48,11 @@
     <nav class="navbar">
       <div class="nav-logo" style="display: flex">
         <!-- <img src="117-.png" style="height: 80px ;padding-left: 7px;" alt="House Project" /> -->
-         <a href="index.html">
-        <img
-          src="h1.png"
-          style="height: 75px; padding-left: 7px"
-          alt="House Project"
+        <a href="index.html">
+          <img
+            src="h1.png"
+            style="height: 75px; padding-left: 7px"
+            alt="House Project"
         /></a>
       </div>
 
@@ -56,8 +61,6 @@
           <a href="photo.html" class="nav-link"
             >Photos<i class="fa-solid fa-angle-down"></i
           ></a>
-
-          
         </li>
 
         <li class="nav-item">
@@ -97,7 +100,7 @@
         <button aria-label="Search">🔍</button>
       </div>
 
-     <div class="auth-buttons" id="authButtons">
+      <div class="auth-buttons" id="authButtons">
         <button class="btn signup">
           <a
             href="signup.html"
@@ -116,7 +119,7 @@
         </button>
       </div>
 
-      <div class="ico" id="userIcons" style="display: none;gap: 10px;">
+      <div class="ico" id="userIcons" style="display: none; gap: 10px">
         <i class="fa-regular fa-message"></i>
         <i class="fa-solid fa-heart" style="color: rgb(213, 42, 102)"></i>
         <i class="fa-regular fa-user"></i>
@@ -128,21 +131,17 @@
           <h3 style="color: #1c7188; font-size: 20px">
             <i class="fa-solid fa-location-crosshairs"></i> Location
           </h3>
-          <input
-            type="text"
-            style="
-              background-color: #c0ece9;
-              height: 28px;
-              padding: 6px;
-              border: none;
-              margin-top: 8px;
-              margin-right: 16px;
-              font-size: 17px;
-            "
-            placeholder="Search City or State"
-          />
+          <div class="bottom-bar">
+            <select id="citySelect" onchange="loadCity()">
+              <option value="">Select City</option>
+              <option value="18.5204,73.8567">Pune</option>
+              <option value="19.0760,72.8777">Mumbai</option>
+              <option value="16.8544,74.5642">Sangli</option>
+            </select>
+          </div>
+          
 
-          <button
+          <!-- <button
             class="ll"
             style="
               padding: 6px;
@@ -153,8 +152,8 @@
             "
           >
             Search
-          </button>
-          <h3 style="color: #1c7188; font-size: 20px; padding-top: 20px">
+          </button> -->
+          <!-- <h3 style="color: #1c7188; font-size: 20px; padding-top: 20px">
             <i class="fa-solid fa-location-crosshairs"></i> PinCode
           </h3>
           <input
@@ -181,7 +180,7 @@
             "
           >
             Search
-          </button>
+          </button> -->
         </div>
 
         <div class="filter-group">
@@ -225,7 +224,7 @@
                 Architect
               </a>
             </label>
-             <label>
+            <label>
               <input
                 type="radio"
                 name="cat"
@@ -239,7 +238,7 @@
                 Interial Designer
               </a>
             </label>
-             <label>
+            <label>
               <input
                 type="radio"
                 name="cat"
@@ -253,7 +252,7 @@
                 Material Shop
               </a>
             </label>
-             <label>
+            <label>
               <input
                 type="radio"
                 name="cat"
@@ -264,10 +263,10 @@
                 onclick="this.previousElementSibling.checked = true;"
                 style="color: inherit; text-decoration: none"
               >
-               Paint
+                Paint
               </a>
             </label>
-             <label>
+            <label>
               <input
                 type="radio"
                 name="cat"
@@ -282,7 +281,7 @@
               </a>
             </label>
 
-             <label>
+            <label>
               <input
                 type="radio"
                 name="cat"
@@ -296,7 +295,7 @@
                 Lightings
               </a>
             </label>
-             <label>
+            <label>
               <input
                 type="radio"
                 name="cat"
@@ -310,13 +309,14 @@
                 Gardening
               </a>
             </label>
-            
-            
           </div>
         </div>
       </aside>
-      <div class="k" >
+      <div class="k">
         <main class="listings-container">
+          <div id="map"></div>
+          
+
           <div class="listing-card">
             <div class="card-image">
               <img src="111.jpg" class="slide active" />
@@ -332,7 +332,9 @@
                   <span class="rating">⭐ 4.9 (110 Reviews)</span>
                 </div>
                 <div class="hy">
-                  <a href="profile.html"><button class="msg-btne">Check Profile</button></a>
+                  <a href="profile.html"
+                    ><button class="msg-btne">Check Profile</button></a
+                  >
                   <button class="msg-btn">✉ Send Message</button>
                 </div>
               </div>
@@ -447,5 +449,88 @@
       </div>
     </div>
     <script src="main.js"></script>
+    <script>
+      /* ================= MAP INIT ================= */
+      const map = L.map("map").setView([20.5937, 78.9629], 5);
+      console.log("Map script running");
+
+      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        attribution: "© OpenStreetMap",
+      }).addTo(map);
+
+      /* ================= DUMMY SERVICE PROVIDERS ================= */
+      const services = [
+        // Pune
+        { name: "Sharma Cement", lat: 18.524, lng: 73.85 },
+        { name: "A1 Plumbing", lat: 18.515, lng: 73.865 },
+
+        // Mumbai
+        { name: "Mumbai Builders", lat: 19.076, lng: 72.877 },
+        { name: "Power Electric", lat: 19.07, lng: 72.87 },
+
+        // Sangli
+        { name: "Sangli Builders", lat: 16.8544, lng: 74.5642 },
+        { name: "Patil Cement Depot", lat: 16.86, lng: 74.56 },
+      ];
+
+      /* ================= ICONS ================= */
+      const cityIcon = L.icon({
+        iconUrl: "https://maps.gstatic.com/mapfiles/ms2/micons/blue-dot.png",
+        iconSize: [32, 32],
+      });
+
+      const serviceIcon = L.icon({
+        iconUrl: "https://maps.gstatic.com/mapfiles/ms2/micons/red-dot.png",
+        iconSize: [32, 32],
+      });
+
+      /* ================= LOGIC ================= */
+      let markers = [];
+      let cityMarker;
+      const RADIUS_KM = 20;
+
+      function loadCity() {
+        const val = citySelect.value;
+        if (!val) return;
+
+        const [clat, clng] = val.split(",").map(Number);
+
+        map.setView([clat, clng], 12);
+
+        // Clear old markers
+        markers.forEach((m) => map.removeLayer(m));
+        markers = [];
+        if (cityMarker) map.removeLayer(cityMarker);
+
+        // City marker
+        cityMarker = L.marker([clat, clng], { icon: cityIcon })
+          .addTo(map)
+          .bindPopup("Selected City")
+          .openPopup();
+
+        // Show nearby services
+        services.forEach((s) => {
+          const d = distance(clat, clng, s.lat, s.lng);
+          if (d <= RADIUS_KM) {
+            const m = L.marker([s.lat, s.lng], { icon: serviceIcon })
+              .addTo(map)
+              .bindPopup(`<b>${s.name}</b><br>${d.toFixed(1)} km away`);
+            markers.push(m);
+          }
+        });
+      }
+
+      /* ================= DISTANCE ================= */
+      function distance(lat1, lng1, lat2, lng2) {
+        const R = 6371;
+        const dLat = rad(lat2 - lat1);
+        const dLng = rad(lng2 - lng1);
+        const a =
+          Math.sin(dLat / 2) ** 2 +
+          Math.cos(rad(lat1)) * Math.cos(rad(lat2)) * Math.sin(dLng / 2) ** 2;
+        return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+      }
+      const rad = (d) => (d * Math.PI) / 180;
+    </script>
   </body>
 </html>

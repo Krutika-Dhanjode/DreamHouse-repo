@@ -480,3 +480,5 @@ body {
 .ai-chat-input { display: flex; padding: 10px; border-top: 1px solid #eee; }
 #ai-input { flex: 1; border: none; outline: none; padding: 5px; }
 #ai-send-btn { background: none; border: none; color: #1a73e8; cursor: pointer; font-size: 18px; }
+
+

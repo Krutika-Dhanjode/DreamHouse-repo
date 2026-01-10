@@ -382,3 +382,26 @@ body {
   color: #2563eb;
 }
 
+#map {
+        width: 90%;
+        height: 400px; /* REQUIRED */
+        margin-bottom: 60px;
+        border-radius: 8px;
+      }
+
+.bottom-bar {
+        position:relative;
+        /* bottom: 10; */
+        width: 90%;
+        color: #26ea4d;
+        background: #3aaf19;
+        padding: 10px;
+        box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+      }
+
+select {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+      }
