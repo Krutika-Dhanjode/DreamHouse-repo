@@ -1,3 +1,5 @@
+## ✨ DreamHouse (your dream , your vision)
+
 🏗️ Smart Home Construction Platform
 
 An AI-powered, all-in-one platform that connects users with verified home-construction service providers, enabling transparent pricing, smart planning, and real-time project tracking.
@@ -28,6 +30,6 @@ The absence of a unified platform results in poor planning, hidden costs, projec
 ---
 ## 🛠️ Tech Stack
 
-* Frontend:HTML, CSS, JavaScript
+* Frontend:HTML, CSS, JavaScript,React,tailwind CSS
 * Backend: Node.js, Express.js
-* Database: MongoDB
+* Database: MongoDB,firebase
